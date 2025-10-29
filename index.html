@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Внутренний покой - Медитация для каждого</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Audio elements -->
+    <audio id="meditation-sound"></audio>
+    <audio id="completion-sound">
+        <source src="https://assets.mixkit.co/sfx/preview/mixkit-bell-notification-933.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Music Selection Modal -->
+    <div id="music-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Выберите музыку для медитации</h3>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="music-list" id="music-list">
+                <!-- Music tracks will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-spa"></i>
+                    <span>Внутренний покой</span>
+                </div>
+                <button class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#features">Преимущества</a></li>
+                        <li><a href="#timer">Таймер</a></li>
+                        <li><a href="#programs">Программы</a></li>
+                        <li><a href="#about">О нас</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Найдите свой внутренний покой</h1>
+                <p>Медитация для снижения стресса, улучшения концентрации и гармонии с собой. Начните свой путь к осознанности уже сегодня.</p>
+                <a href="#timer" class="btn">Начать медитацию</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Преимущества медитации</h2>
+                <p>Регулярная практика медитации приносит множество преимуществ для вашего физического и ментального здоровья</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Снижение стресса</h3>
+                    <p>Медитация помогает снизить уровень кортизола - гормона стресса, способствуя расслаблению и спокойствию.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Улучшение сна</h3>
+                    <p>Практика медитации перед сном помогает успокоить ум и подготовить тело к качественному отдыху.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Эмоциональное равновесие</h3>
+                    <p>Медитация развивает осознанность, помогая лучше управлять эмоциями и сохранять внутренний баланс.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meditation Timer -->
+    <section class="meditation-timer" id="timer">
+        <div class="container">
+            <div class="section-title">
+                <h2>Таймер для медитации</h2>
+                <p>Используйте наш таймер для структурирования вашей практики медитации</p>
+            </div>
+            <div class="timer-container">
+                <div class="timer-display" id="timer-display">10:00</div>
+                
+                <div class="sound-controls">
+                    <div class="volume-control">
+                        <label for="volume-control">Громкость:</label>
+                        <input type="range" id="volume-control" min="0" max="1" step="0.1" value="0.5">
+                        <span id="volume-value">50%</span>
+                    </div>
+                    <div class="music-buttons">
+                        <button class="music-select-btn" id="music-select-btn">
+                            <i class="fas fa-music"></i> Выбрать музыку
+                        </button>
+                        <button class="music-upload-btn" id="music-upload-btn">
+                            <i class="fas fa-upload"></i> Загрузить музыку
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="current-track" id="current-track">
+                    <i class="fas fa-play"></i>
+                    <span>Трек не выбран</span>
+                </div>
+                
+                <div class="timer-controls">
+                    <button class="timer-btn active" data-time="300">5 мин</button>
+                    <button class="timer-btn" data-time="600">10 мин</button>
+                    <button class="timer-btn" data-time="900">15 мин</button>
+                    <button class="timer-btn" data-time="1800">30 мин</button>
+                </div>
+                <div class="timer-actions">
+                    <button class="action-btn start-btn" id="start-btn">Начать</button>
+                    <button class="action-btn reset-btn" id="reset-btn">Сбросить</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-title">
+                <h2>Программы медитации</h2>
+                <p>Выберите программу, которая подходит именно вам</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url(img/first.jpg);"></div>
+                    <div class="program-content">
+                        <h3>Для начинающих</h3>
+                        <p>7-дневный курс, который познакомит вас с основами медитации и поможет сформировать привычку.</p>
+                        <a href="#" class="btn">Начать курс</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url(img/second.avif);"></div>
+                    <div class="program-content">
+                        <h3>Снижение стресса</h3>
+                        <p>Техники медитации, специально разработанные для снижения уровня стресса и тревожности.</p>
+                        <a href="#" class="btn">Начать курс</a>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-img" style="background-image: url(img/third.avif);"></div>
+                    <div class="program-content">
+                        <h3>Медитация сна</h3>
+                        <p>Практики для расслабления перед сном, которые помогут улучшить качество вашего отдыха.</p>
+                        <a href="#" class="btn">Начать курс</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Внутренний покой</h3>
+                    <p>Мы помогаем людям обрести гармонию и спокойствие через практику медитации и осознанности.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="#home">Главная</a></li>
+                        <li><a href="#features">Преимущества</a></li>
+                        <li><a href="#timer">Таймер</a></li>
+                        <li><a href="#programs">Программы</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Ресурсы</h3>
+                    <ul>
+                        <li><a href="#">Блог</a></li>
+                        <li><a href="#">Подкасты</a></li>
+                        <li><a href="#">Курсы</a></li>
+                        <li><a href="#">Приложение</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Контакты</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> dimapostav5@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> +7 (999) 123-45-67</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Новосибирск, Немировича-Данченко, 102/1</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Внутренний покой. Все права у стаса.</p>
+            </div>
+        </div>
+    </footer>
+
+    <input type="file" id="file-input" accept="audio/*" multiple style="display: none;">
+
+    <script src="script.js"></script>
+</body>
+</html>
