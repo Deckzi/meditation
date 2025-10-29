@@ -42,31 +42,31 @@ let isShuffle = false;
 let musicPlaylist = [
     {
         title: "Crystal",
-        url: "audio/crystal.mp3",
+        url: "audio/Crystal.mp3",
         duration: "3:52",
         isUploaded: false
     },
     {
         title: "Waterfall", 
-        url: "audio/nature.mp3",
+        url: "audio/Nature.mp3",
         duration: "4:11",
         isUploaded: false
     },
     {
         title: "Ocean",
-        url: "audio/ocean.mp3",
+        url: "audio/Ocean.mp3",
         duration: "5:48",
         isUploaded: false
     },
     {
         title: "Space",
-        url: "audio/space.mp3",
+        url: "audio/Space.mp3",
         duration: "3:00",
         isUploaded: false
     },
     {
         title: "Nature",
-        url: "audio/waterfall.mp3",
+        url: "audio/Waterfall.mp3",
         duration: "2:38",
         isUploaded: false
     }
